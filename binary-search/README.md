@@ -16,7 +16,7 @@ const binary = (val, array) => {
  let upper = array[array.length -1];
  while(lower <= upper){
    // now we break the array in half, very important is to use Math.floor as sometimes your division can be decimal and we are looking for integer numbers
-   const middle = Math.floor((upper-lower)/2);
+   const middle = lower + Math.floor((upper-lower)/2);
 
    if(val === array[middle]){
      return middle;
