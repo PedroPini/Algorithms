@@ -30,11 +30,16 @@ memoized("foo", 3, "bar"); // Cache hit
 Here we will go with the fibonacci
 
 ```
+//creating a decorator of functions
 const memoize = (func) => {
   const results = {};
+  //destructing args to create a key => value cache
+  on the anonymous closure function
   return (...args) => {
+     // 'args' here is the arguments object for memoizedFunction.
     const argsKey = JSON.stringify(args);
     if (!results[argsKey]) {
+    //now we apply the value retrieved from the function to the arg,
       results[argsKey] = func(...args);
     }
     return results[argsKey];
@@ -49,6 +54,6 @@ const fibonacci = memoize((n) => {
   } else return fibonacci(n - 1) + fibonacci(n - 2);
 });
 
-console.log(fibonacci(10));
 console.log(fibonacci(50));
+console.log(fibonacci(10));// Cache hit
 ```
